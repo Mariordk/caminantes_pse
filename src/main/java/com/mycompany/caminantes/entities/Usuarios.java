@@ -41,12 +41,12 @@ public class Usuarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_usuario")
+    @Column(name = "idUsuario")
     private Integer idUsuario;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "nombre_usuario")
+    @Column(name = "nombreUsuario")
     private String nombreUsuario;
     @Basic(optional = false)
     @NotNull

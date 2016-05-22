@@ -9,13 +9,20 @@ body {
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
+    font-size:  30px;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
     color: #D20005;
+    text-align: center;
 }
 
+h2
+{
+    font-size:16px;
+    color:darkgoldenrod;
+    
+}
 a:link, a:visited {
   color: #045491;
   font-weight : bold;
@@ -26,4 +33,21 @@ a:link:hover, a:visited:hover  {
   color: #045491;
   font-weight : bold;
   text-decoration : underline;
+}
+
+#tablaInicio
+{
+    margin-left:30%;
+    -moz-border-radius: 5px;
+    border-radius:5px;
+    padding:2%;
+    border:1px solid black;
+    border-color: #000000;
+    background-color: bisque;
+}
+
+#botonInicio
+{
+    position:absolute;
+    left: 100px;
 }
