@@ -27,6 +27,7 @@ public class usuariosBackingBean implements Serializable{
     int edad;    
     String provincia;
     String rol;
+    
     public int getIdUsuario() {
         return idUsuario;
     }
