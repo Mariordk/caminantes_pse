@@ -48,6 +48,7 @@ public class UsuarioWriter implements MessageBodyWriter<Usuarios>{
         .write("apellidos",u.getApellidos())
         .write("edad",u.getEdad())
         .write("provincia",u.getProvincia())
+        .write("rol",u.getRol())
         .writeEnd();
         gen.flush();
     }

@@ -34,7 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuarios.findByNombre", query = "SELECT u FROM Usuarios u WHERE u.nombre = :nombre"),
     @NamedQuery(name = "Usuarios.findByApellidos", query = "SELECT u FROM Usuarios u WHERE u.apellidos = :apellidos"),
     @NamedQuery(name = "Usuarios.findByEdad", query = "SELECT u FROM Usuarios u WHERE u.edad = :edad"),
-    @NamedQuery(name = "Usuarios.findByProvincia", query = "SELECT u FROM Usuarios u WHERE u.provincia = :provincia")})
+    @NamedQuery(name = "Usuarios.findByProvincia", query = "SELECT u FROM Usuarios u WHERE u.provincia = :provincia"),
+    @NamedQuery(name = "Usuarios.findByRol", query = "SELECT u FROM Usuarios u WHERE u.rol = :rol")})
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -72,6 +73,11 @@ public class Usuarios implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "provincia")
     private String provincia;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2)
+    @Column(name = "rol")
+    private String rol;
 
     public Usuarios() {
     }
@@ -80,7 +86,7 @@ public class Usuarios implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Usuarios(Integer idUsuario, String nombreUsuario, String password, String nombre, String apellidos, int edad, String provincia) {
+    public Usuarios(Integer idUsuario, String nombreUsuario, String password, String nombre, String apellidos, int edad, String provincia, String rol) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
@@ -88,6 +94,7 @@ public class Usuarios implements Serializable {
         this.apellidos = apellidos;
         this.edad = edad;
         this.provincia = provincia;
+        this.rol = rol;
     }
 
     public Integer getIdUsuario() {
@@ -144,6 +151,14 @@ public class Usuarios implements Serializable {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     @Override
