@@ -13,6 +13,8 @@ import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -32,10 +34,13 @@ public class usuariosClientBean {
     Client client;
     WebTarget target;
     
+    @PersistenceContext
+    EntityManager em;
+    
     @PostConstruct
     public void init() {
         client = ClientBuilder.newClient();
-        target = client.target("http://localhost:8080/cines2015/webresources/com.mycompany.caminantes.entities.usuarios");
+        target = client.target("http://localhost:8080/caminantes/webresources/com.mycompany.caminantes.entities.usuarios");
     }
 
     @PreDestroy
@@ -85,5 +90,7 @@ public class usuariosClientBean {
         target.register(UsuarioWriter.class)
                 .request()
                 .post(Entity.entity(u, MediaType.APPLICATION_JSON));
+        
+        
     }
 }

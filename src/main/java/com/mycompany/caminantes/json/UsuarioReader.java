@@ -33,15 +33,23 @@ public class UsuarioReader implements MessageBodyReader<Usuarios>{
     }
 
     @Override
-    public Usuarios readFrom(Class<Usuarios> type, Type type1,Annotation[] antns, MediaType mt, MultivaluedMap<String, String> mm, InputStream in) throws IOException, WebApplicationException {
+    public Usuarios readFrom(Class<Usuarios> type, 
+            Type type1,
+            Annotation[] antns, 
+            MediaType mt, 
+            MultivaluedMap<String, String> mm,
+            InputStream in) throws IOException, WebApplicationException {
+        
         Usuarios usuario = new Usuarios();
         JsonParser parser = Json.createParser(in);
+        
         while (parser.hasNext()) {
             switch (parser.next()) {
                 case KEY_NAME:
-                    String key = parser.getString();
-                parser.next();
-                switch (key) {
+                        String key = parser.getString();
+                        parser.next();
+                        
+                    switch (key) {
                         case "idUsuario":
                             usuario.setIdUsuario(parser.getInt());
                         break;
@@ -63,6 +71,9 @@ public class UsuarioReader implements MessageBodyReader<Usuarios>{
                         case "provincia":
                             usuario.setProvincia(parser.getString());
                         break;
+                        case "rol":
+                            usuario.setRol(parser.getString());
+                        break;
                         default:
                         break;
                     }
@@ -71,6 +82,7 @@ public class UsuarioReader implements MessageBodyReader<Usuarios>{
                 break;
                 }
         }       
+        
     return usuario;
     } 
 }

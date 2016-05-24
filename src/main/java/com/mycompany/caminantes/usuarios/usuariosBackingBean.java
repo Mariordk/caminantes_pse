@@ -19,14 +19,14 @@ import javax.inject.Named;
 @SessionScoped
 public class usuariosBackingBean implements Serializable{
     
-    int idUsuario;
-    String nombreUsuario;
-    String password;
-    String nombre;
-    String apellidos;
-    int edad;    
-    String provincia;
-    String rol;
+    private int idUsuario;
+    private String nombreUsuario;
+    private String password;
+    private String nombre;
+    private String apellidos;
+    private int edad;    
+    private String provincia;
+    private String rol;
     
     public int getIdUsuario() {
         return idUsuario;
