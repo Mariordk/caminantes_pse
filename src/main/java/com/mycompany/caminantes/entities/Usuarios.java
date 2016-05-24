@@ -39,40 +39,48 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
+        
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idUsuario")
     private Integer idUsuario;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombreUsuario")
     private String nombreUsuario;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "password")
     private String password;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "nombre")
     private String nombre;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "apellidos")
     private String apellidos;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "edad")
     private int edad;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "provincia")
     private String provincia;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
