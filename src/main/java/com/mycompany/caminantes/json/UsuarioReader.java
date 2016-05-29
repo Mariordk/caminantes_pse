@@ -63,7 +63,7 @@ public class UsuarioReader implements MessageBodyReader<Usuarios>{
                             usuario.setNombre(parser.getString());
                         break;
                         case "apellidos":
-                            usuario.setNombre(parser.getString());
+                            usuario.setApellidos(parser.getString());
                         break;
                         case "edad":
                             usuario.setEdad(parser.getInt());
@@ -77,6 +77,7 @@ public class UsuarioReader implements MessageBodyReader<Usuarios>{
                         default:
                         break;
                     }
+                    
                 break;
                 default:
                 break;

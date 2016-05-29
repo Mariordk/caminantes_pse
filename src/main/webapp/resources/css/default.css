@@ -13,7 +13,7 @@ h1 {
     font-weight: bold;
     margin: 0px;
     padding: 0px;
-    color: #D20005;
+    color:saddlebrown;
     text-align: center;
 }
 
@@ -50,4 +50,9 @@ a:link:hover, a:visited:hover  {
 {
     position:absolute;
     left: 100px;
+}
+
+#datos
+{
+    color:chocolate;
 }

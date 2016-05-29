@@ -11,28 +11,23 @@
 
             <ui:define name="content">
                 <h2>Ingrese los siguientes datos para iniciar sesión:</h2>
-                    <h:form>
+                    <form action="j_security_check" method="POST">
                         <table cellpadding="5" cellspacing="5" id="tablaInicio">
                             <tr>
-                                <th align="left">Nombre de usuario:</th>
-                                    <td><h:inputText value=""/> </td>
+                                <p><label>Nombre de usuario</label><input type="text" name="j_username" size="21" maxlength="16"/></p>
                             </tr>
                             <tr>
-                                <th align="left">Password:</th>
-                                    <td><h:inputText value=""/></td>
+                                <p><label>Contraseña: </label><input type="password" name="j_password" size="16" maxlength="16"/></p>
+                                
                             </tr>
                             <tr>
                                 <td>
-                                    <p:commandButton 
-                                        value="Entrar" 
-                                        action="index.xhtml" 
-                                        id="botonInicio"
-                                        />
+                                    <input type="submit" value="Entrar"/>
                                 </td>
                             </tr>
                            
                         </table>
-                    </h:form>
+                    </form>
             </ui:define>
 
         </ui:composition>

@@ -3,20 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                 <h2>Ingrese los siguientes datos para registrarse:</h2>
+                 <h2>Modificar datos del perfil</h2>
                     <h:form>
-                        <table cellpadding="5" cellspacing="5" id="tablaInicio">
+                        <table cellpadding="5" cellspacing="5">
                             <tr>
                                 <th align="left">Nombre de usuario:</th>
-                                <td><h:inputText value="#{usuariosBackingBean.nombreUsuario}"/> </td>
+                                <td><h:inputText value="#{usuariosBackingBean.nombre}"/> </td>
                             </tr>
                             <tr>
                                 <th align="left">Password:</th>
@@ -28,7 +27,7 @@
                             </tr>
                             <tr>
                                 <th align="left">Nombre:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.nombre}"/></td>
+                                <td><h:inputText value="#{usuariosBackingBean.nombre}"/></td>
                             </tr>
                             <tr>
                                 <th align="left">Apellidos:</th>
@@ -42,26 +41,14 @@
                                 <th align="left">Provincia:</th>
                                     <td><h:inputText value="#{usuariosBackingBean.provincia}"/></td>
                             </tr>
-                            <tr>
-                                <th align="left">Registrarse como:</th>
-                                    <td><p:selectOneButton value="#{usuariosBackingBean.rol}">
-                                            <f:selectItem itemLabel="Organizador" itemValue="organizador" />
-                                            <f:selectItem itemLabel="Usuario" itemValue="usuario" />
-                                        </p:selectOneButton></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p:commandButton 
-                                        value="Enviar" 
-                                        
-                                        id="botonInicio"
-                                        actionListener="#{usuariosClientBean.addUsuario()}"
-                                        />
-                                </td>
-                            </tr>
-                           
+                            
                         </table>
+                    <p:commandButton 
+                        value="Añadir" 
+                        action="movies" 
+                        actionListener="#{usuariosClientBean.updateUsuario()}"/>
                     </h:form>
+            </ui:define>
             </ui:define>
 
         </ui:composition>

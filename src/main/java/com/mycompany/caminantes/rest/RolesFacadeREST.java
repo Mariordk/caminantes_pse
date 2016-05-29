@@ -5,10 +5,9 @@
  */
 package com.mycompany.caminantes.rest;
 
-import com.mycompany.caminantes.entities.Usuarios;
+import com.mycompany.caminantes.entities.Roles;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
@@ -25,56 +24,55 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Mario
  */
-@Named
 @Stateless
-@Path("com.mycompany.caminantes.entities.usuarios")
-public class UsuariosFacadeREST extends AbstractFacade<Usuarios> {
+@Path("com.mycompany.caminantes.entities.roles")
+public class RolesFacadeREST extends AbstractFacade<Roles> {
 
     @PersistenceContext(unitName = "com.mycompany_caminantes_war_1.0-SNAPSHOTPU")
     private EntityManager em;
 
-    public UsuariosFacadeREST() {
-        super(Usuarios.class);
+    public RolesFacadeREST() {
+        super(Roles.class);
     }
 
     @POST
     @Override
-    @Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-    public void create(Usuarios entity) {
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void create(Roles entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, Usuarios entity) {
+    public void edit(@PathParam("id") String id, Roles entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Integer id) {
+    public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-    public Usuarios find(@PathParam("id") Integer id) {
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Roles find(@PathParam("id") String id) {
         return super.find(id);
     }
 
     @GET
     @Override
-    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
-    public List<Usuarios> findAll() {
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Roles> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Usuarios> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Roles> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

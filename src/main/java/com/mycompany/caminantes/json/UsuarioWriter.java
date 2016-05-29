@@ -40,17 +40,20 @@ public class UsuarioWriter implements MessageBodyWriter<Usuarios>{
     @Override
     public void writeTo(Usuarios u, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
        JsonGenerator gen = Json.createGenerator(entityStream);
-        gen.writeStartObject()
-            .write("idUsuario", u.getIdUsuario())
-            .write("nombreUsuario", u.getNombreUsuario())
-            .write("password", u.getPassword())
-            .write("nombre",u.getNombre())
-            .write("apellidos",u.getApellidos())
-            .write("edad",u.getEdad())
-            .write("provincia",u.getProvincia())
-            .write("rol",u.getRol())
-        .writeEnd();
+      
+            gen.writeStartObject()
+                .write("idUsuario", u.getIdUsuario())
+                .write("nombreUsuario", u.getNombreUsuario())
+                .write("password", u.getPassword())
+                .write("nombre",u.getNombre())
+                .write("apellidos",u.getApellidos())
+                .write("edad",u.getEdad())
+                .write("provincia",u.getProvincia())
+                .write("rol",u.getRol())
+            .writeEnd();
+             
         gen.flush();
+        
     }
     
 }

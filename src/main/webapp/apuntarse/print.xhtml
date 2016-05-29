@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h2><h:outputText value="Enhorabuena, ya te has apuntado a #{apuntarse.nombreDeRuta}"/></h2>
+                    <p:panelGrid id="info" columns="3">
+                        <h:outputText value="Descripción: #{apuntarse.descripcionDeRuta}"/>
+                        <h:outputText value="Hora de inicio: #{apuntarse.horadeInicio}"/>
+                        <h:outputText value="Hora de fin: #{apuntarse.horadeFin}"/>
+                    </p:panelGrid>
+                <h2><h:outputText value="Informacion del pago"/></h2>
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Cantidad:"/>
+                        <h:outputText value="#{apuntarse.cantidad}">
+                            <f:convertNumber type="currency"/>
+                        </h:outputText>
+                        <h:outputText value="Tarjeta de credito:"/>
+                        <h:outputText value="#{apuntarse.tarjeta}"/>
+                        <h:outputText value="Fecha de expiracion:"/>
+                        <h:outputText value="#{apuntarse.fecha}">
+                            <f:convertDateTime pattern="MM/yyyy"/>
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton id="home" value="Inicio" action="goHome" icon="ui-icon-home"/>
+                    
+                    <p:panelGrid columns="2">
+                        <h:outputText value="Código QR con el comprobante:" />
+                        <p:barcode value="Aquí está tu entrada para #{apuntarse.nombreDeRuta}" type="qr"/>
+                    </p:panelGrid>
+                    
+                    <p:commandButton value="Imprimir" type="button" icon="ui-icon-print">
+                        <p:printer target="info"/>
+                    </p:commandButton>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

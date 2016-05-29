@@ -27,20 +27,23 @@ import javax.ws.rs.core.MediaType;
 
 @Named
 @RequestScoped
+
 public class usuariosClientBean {
-    @Inject
-    usuariosBackingBean bean;
     
     Client client;
-    WebTarget target;
-    
+    WebTarget target;    
+    @Inject
+    usuariosBackingBean bean;
     @PersistenceContext
     EntityManager em;
+    rolesClientBean rolBean;
     
     @PostConstruct
     public void init() {
         client = ClientBuilder.newClient();
         target = client.target("http://localhost:8080/caminantes/webresources/com.mycompany.caminantes.entities.usuarios");
+        rolBean = new rolesClientBean();
+        rolBean.init();
     }
 
     @PreDestroy
@@ -87,10 +90,18 @@ public class usuariosClientBean {
         u.setEdad(bean.getEdad());
         u.setProvincia(bean.getProvincia());
         u.setRol(bean.getRol());
-        target.register(UsuarioWriter.class)
-                .request()
-                .post(Entity.entity(u, MediaType.APPLICATION_JSON));
+        rolBean.addRol(bean.getNombreUsuario(),bean.getRol());
+        target.register(UsuarioWriter.class).request().post(Entity.entity(u,MediaType.APPLICATION_JSON));
         
-        
+
     }
+     
+     public void updateUsuario(){
+        
+        target.path("{idUsuario}")
+                .resolveTemplate("idUsuario", bean.getIdUsuario())
+                .request()
+                .put(Entity.entity(Usuarios.class,MediaType.APPLICATION_JSON));
+        
+     }
 }
