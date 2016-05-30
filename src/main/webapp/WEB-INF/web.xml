@@ -25,7 +25,22 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>organizador</web-resource-name>
+            <url-pattern>/faces/organizador/*</url-pattern>
+            <url-pattern>/organizador/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>organizador</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>usuario</web-resource-name>
@@ -49,14 +64,19 @@
         </auth-constraint>
     </security-constraint>
     <login-config>
-        <auth-method>FORM</auth-method> <!-- Metodo de autenticación -->
-        <realm-name>jdbcRealm</realm-name> <!-- Nombre del dominio -->
+        <auth-method>FORM</auth-method>
+        <!-- Metodo de autenticación -->
+        <realm-name>jdbcRealm</realm-name>
+        <!-- Nombre del dominio -->
         <form-login-config>
-            <form-login-page>/faces/acceso/login.xhtml</form-login-page> <!-- Pagina de login -->
-            <form-error-page>/faces/acceso/error.xhtml</form-error-page>  <!-- Pagina de error -->
+            <form-login-page>/faces/acceso/inicioSesion.xhtml</form-login-page>
+            <!-- Pagina de login -->
+            <form-error-page>/faces/acceso/error.xhtml</form-error-page>
+            <!-- Pagina de error -->
         </form-login-config>
     </login-config>
-    <security-role> <!-- Roles de autenticacion -->
+    <security-role>
+        <!-- Roles de autenticacion -->
         <role-name>organizador</role-name>
     </security-role>
     <security-role>

@@ -81,6 +81,7 @@ public class usuariosClientBean {
     }
      
      public void addUsuario() {
+         System.out.println(bean.getRol());
         Usuarios u = new Usuarios();
         u.setIdUsuario(1);
         u.setNombreUsuario(bean.getNombreUsuario());
@@ -91,6 +92,7 @@ public class usuariosClientBean {
         u.setProvincia(bean.getProvincia());
         u.setRol(bean.getRol());
         rolBean.addRol(bean.getNombreUsuario(),bean.getRol());
+         
         target.register(UsuarioWriter.class).request().post(Entity.entity(u,MediaType.APPLICATION_JSON));
         
 

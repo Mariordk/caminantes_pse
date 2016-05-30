@@ -13,8 +13,8 @@
             <ui:define name="content">
                 <h2>Selecciona una ruta:</h2>
             <h:form prependId="false">
-        <h:selectOneRadio value="#{apuntarse.id_ruta}" layout="pageDirection" required="true">
-        <f:selectItems value="#{rutasFacadeREST.findAll()}"
+        <h:selectOneRadio value="#{apuntarse.idRuta}" layout="pageDirection" required="true">
+        <f:selectItems value="#{rutasClientBean.rutas}"
             var="m"
             itemValue="#{m.idRuta}"
             itemLabel="#{m.nombre}"/>

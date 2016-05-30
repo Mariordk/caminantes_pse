@@ -47,6 +47,8 @@ public class RutasWriter implements MessageBodyWriter<Rutas>{
             OutputStream entityStream) 
             throws IOException, WebApplicationException {
         
+        System.out.println("HOLAAAAAAAAAAAAA");
+        System.out.println(t.getHoraFin());
         JsonGenerator gen = Json.createGenerator(entityStream);
         gen.writeStartObject()
             .write("idRuta", t.getIdRuta())
@@ -55,7 +57,7 @@ public class RutasWriter implements MessageBodyWriter<Rutas>{
             .write("horaInicio", t.getHoraInicio())
             .write("horaFin", t.getHoraFin())
         .writeEnd();
-        System.out.println(t.getHoraFin());
+        
         //se escribe en el http, jsonGenerator escribe los datos JSON y lo pone en el stream de salida
         gen.flush();
     }

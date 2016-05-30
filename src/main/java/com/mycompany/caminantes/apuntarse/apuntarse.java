@@ -22,11 +22,11 @@ import javax.persistence.PersistenceContext;
 @FlowScoped("apuntarse")
 public class apuntarse implements Serializable{
     
-    private int id_ruta;
+    private int idRuta;
     private String nombre;
     private String descripcion;
-    private String hora_inicio;
-    private String hora_fin;
+    private String horaInicio;
+    private String horaFin;
     private double cantidad;
     private String tarjeta = "";
     private Date fecha = new Date();
@@ -59,12 +59,12 @@ public class apuntarse implements Serializable{
     @PersistenceContext
     EntityManager em;
     
-    public int getId_ruta() {
-        return id_ruta;
+    public int getIdRuta() {
+        return idRuta;
     }
 
-    public void setId_ruta(int id_ruta) {
-        this.id_ruta = id_ruta;
+    public void setIdRuta(int idRuta) {
+        this.idRuta = idRuta;
     }
 
     public String getNombre() {
@@ -83,26 +83,26 @@ public class apuntarse implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public String getHora_inicio() {
-        return hora_inicio;
+    public String getHoraInicio() {
+        return horaInicio;
     }
 
-    public void setHora_inicio(String hora_inicio) {
-        this.hora_inicio = hora_inicio;
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
-    public String getHora_fin() {
-        return hora_fin;
+    public String getHoraFin() {
+        return horaFin;
     }
 
-    public void setHora_fin(String hora_fin) {
-        this.hora_fin = hora_fin;
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
     }
     
     public String getNombreDeRuta() {
         try {
                 return em.createNamedQuery("Rutas.findByIdRuta", Rutas.class)
-                .setParameter("idRuta", id_ruta)
+                .setParameter("idRuta", idRuta)
                 .getSingleResult()
                 .getNombre();
             } catch (NoResultException e) 
@@ -114,7 +114,7 @@ public class apuntarse implements Serializable{
     public String getDescripcionDeRuta() {
         try {
                 return em.createNamedQuery("Rutas.findByIdRuta", Rutas.class)
-                .setParameter("idRuta", id_ruta)
+                .setParameter("idRuta", idRuta)
                 .getSingleResult()
                 .getDescripcion();
             } catch (NoResultException e){
@@ -128,7 +128,7 @@ public class apuntarse implements Serializable{
         
          try {
                 return em.createNamedQuery("Rutas.findByIdRuta", Rutas.class)
-                .setParameter("idRuta", id_ruta)
+                .setParameter("idRuta", idRuta)
                 .getSingleResult()
                 .getHoraInicio();
             } catch (NoResultException e){
@@ -139,7 +139,7 @@ public class apuntarse implements Serializable{
         
          try {
                 return em.createNamedQuery("Rutas.findByIdRuta", Rutas.class)
-                .setParameter("idRuta", id_ruta)
+                .setParameter("idRuta", idRuta)
                 .getSingleResult()
                 .getHoraFin();
             } catch (NoResultException e){

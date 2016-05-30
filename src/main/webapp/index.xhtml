@@ -14,7 +14,7 @@
                 <h2><h:outputText value="Actualmente hay  #{rutasFacadeREST.countREST()} rutas disponibles en el circuito:"/></h2>
                 <f:view>
                     <h:form>
-                        <p:dataTable value="#{rutasFacadeREST.findAll()}" var="item">
+                        <p:dataTable value="#{rutasClientBean.rutas}" var="item">
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="nº de ruta"/>

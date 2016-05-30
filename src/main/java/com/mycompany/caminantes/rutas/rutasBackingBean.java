@@ -22,7 +22,7 @@ public class rutasBackingBean implements Serializable{
     private String descripcion;
     private String horaInicio;
     private String horaFin;
-    private int organizador;    
+  
 
     public int getIdRuta() {
         return idRuta;
@@ -64,13 +64,7 @@ public class rutasBackingBean implements Serializable{
         this.horaFin = horaFin;
     }
 
-    public int getOrganizador() {
-        return organizador;
-    }
-
-    public void setOrganizador(int organizador) {
-        this.organizador = organizador;
-    }
+   
     
     
 }

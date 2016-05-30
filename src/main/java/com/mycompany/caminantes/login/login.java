@@ -77,10 +77,16 @@ public class login implements Serializable{
     
     public String getRol() {
         try {
+            System.out.println(em.createNamedQuery("Roles.findByNombreUsuario", Roles.class)
+                .setParameter("nombreUsuario", nombreUsuario)
+                .getSingleResult()
+                .getRol());
                 return em.createNamedQuery("Roles.findByNombreUsuario", Roles.class)
                 .setParameter("nombreUsuario", nombreUsuario)
                 .getSingleResult()
                 .getRol();
+                
+                
             } catch (NoResultException e) 
             {
                 return "";
