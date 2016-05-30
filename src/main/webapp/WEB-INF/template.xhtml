@@ -26,31 +26,30 @@
                 <p:menu>
                     <p:submenu label="Menú">
                         <c:choose>
+                            
                             <c:when test="${rol == organizador}">
                                 <p:menuitem value="Organizador"/>
-                                <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
-                                <p:menuitem value="Mis Rutas" url="/faces/acceso/inicioSesion.xhtml" icon="ui-icon-key"/>
-                                <p:menuitem value="Modificar perfil" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" /> 
-                                <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" /> 
+                                <p:menuitem value="Inicio" url="/faces/organizador/indexO.xhtml" icon="ui-icon-home" />
+                                <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
+                                <p:menuitem value="Modificar perfil" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" />                                  
                             </c:when>
+                            
                             <c:when test="${rol == usuario}">
                                  <p:menuitem value="Usuario"/>
-                                <p:menuitem value="Inicio" url="/faces/acceso/index.xhtml" icon="ui-icon-home" />
-                                <p:menuitem value="Rutas" url="/faces/acceso/inicioSesion.xhtml" icon="ui-icon-key"/>
-                                <p:menuitem value="Modificar perfil" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" /> 
-                                <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" /> 
-                            
+                                <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
+                                <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" />
+                                <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
+                                <p:menuitem value="Modificar perfil" url="/faces/usuario/modificarPerfil.xhtml" icon=" ui-icon-gear"/>
+                                
                             </c:when>
+                            
                             <c:otherwise>
                                  <p:menuitem value="Usuario NR"/>
                                 <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
                                 <p:menuitem value="Iniciar sesion" url="/faces/acceso/inicioSesion.xhtml" icon="ui-icon-key"/>
-                                <p:menuitem value="Registrarse" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" /> 
-                                <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" />
-                                <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
-                                <p:menuitem value="indexOrganizador" url="/faces/organizador/indexO.xhtml"/>
-                                <p:menuitem value="Modificar perfil" url="/faces/usuario/modificarPerfil.xhtml"/>
+                                <p:menuitem value="Registrarse" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" />    
                             </c:otherwise>
+                            
                         </c:choose> 
                         
                         

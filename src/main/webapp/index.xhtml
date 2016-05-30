@@ -11,7 +11,7 @@
         <ui:composition template="./WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h2><h:outputText value="Actualmente hay  #{rutasFacadeREST.countREST()} rutas disponibles en el circuito:"/></h2>
+                <h2><h:outputText value="Las rutas disponibles en el circuito son:"/></h2>
                 <f:view>
                     <h:form>
                         <p:dataTable value="#{rutasClientBean.rutas}" var="item">
