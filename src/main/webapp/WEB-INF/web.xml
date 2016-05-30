@@ -36,10 +36,7 @@
         <auth-constraint>
             <role-name>organizador</role-name>
         </auth-constraint>
-        <user-data-constraint>
-            <description/>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
+        
     </security-constraint>
     <security-constraint>
         <web-resource-collection>
