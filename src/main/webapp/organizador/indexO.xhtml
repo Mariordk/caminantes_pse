@@ -13,6 +13,7 @@
 
             <ui:define name="content">
                 <h:form prependId="false">
+                    <h1>#{login.nombreUsuario} - #{login.rol}</h1>
                     <h:selectOneRadio value="#{rutasBackingBean.idRuta}" layout="pageDirection">
                         <c:forEach items="#{rutasClientBean.rutas}" var="m">
                             <f:selectItem itemValue="#{m.idRuta}" itemLabel="#{m.nombre}"/>

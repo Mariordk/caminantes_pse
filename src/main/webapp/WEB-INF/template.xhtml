@@ -18,7 +18,9 @@
         <p:layoutUnit position="north" size="50" resizable="false" closable="true" collapsible="true">
             <h1><h:outputText value="Caminantes - Circuito de los senderos segovianos"/></h1>
         </p:layoutUnit>
-            <c:set var="rol" scope="session" value="${login.rol}"></c:set>
+            <c:set var="rol" scope="session" value="#{login.rol}"></c:set>
+            <c:set var="organizador" scope="session" value="organizador"></c:set>
+            <c:set var="usuario" scope="session" value="usuario"></c:set>
             <p:layoutUnit position="west" size="175"  collapsible="false">
                 <h:form>
                 <p:menu>
