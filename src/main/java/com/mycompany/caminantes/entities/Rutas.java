@@ -32,15 +32,14 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Rutas.findByNombre", query = "SELECT r FROM Rutas r WHERE r.nombre = :nombre"),
     @NamedQuery(name = "Rutas.findByDescripcion", query = "SELECT r FROM Rutas r WHERE r.descripcion = :descripcion"),
     @NamedQuery(name = "Rutas.findByHoraInicio", query = "SELECT r FROM Rutas r WHERE r.horaInicio = :horaInicio"),
-    @NamedQuery(name = "Rutas.findByHoraFin", query = "SELECT r FROM Rutas r WHERE r.horaFin = :horaFin"),
-    @NamedQuery(name = "Rutas.findByOrganizador", query = "SELECT r FROM Rutas r WHERE r.organizador = :organizador")})
+    @NamedQuery(name = "Rutas.findByHoraFin", query = "SELECT r FROM Rutas r WHERE r.horaFin = :horaFin")})
 public class Rutas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_ruta")
+    @Column(name = "idRuta")
     private Integer idRuta;
     @Basic(optional = false)
     @NotNull
@@ -55,17 +54,13 @@ public class Rutas implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 12)
-    @Column(name = "hora_inicio")
+    @Column(name = "horaInicio")
     private String horaInicio;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 12)
-    @Column(name = "hora_fin")
+    @Column(name = "horaFin")
     private String horaFin;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "organizador")
-    private int organizador;
 
     public Rutas() {
     }
@@ -74,13 +69,12 @@ public class Rutas implements Serializable {
         this.idRuta = idRuta;
     }
 
-    public Rutas(Integer idRuta, String nombre, String descripcion, String horaInicio, String horaFin, int organizador) {
+    public Rutas(Integer idRuta, String nombre, String descripcion, String horaInicio, String horaFin) {
         this.idRuta = idRuta;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
-        this.organizador = organizador;
     }
 
     public Integer getIdRuta() {
@@ -121,14 +115,6 @@ public class Rutas implements Serializable {
 
     public void setHoraFin(String horaFin) {
         this.horaFin = horaFin;
-    }
-
-    public int getOrganizador() {
-        return organizador;
-    }
-
-    public void setOrganizador(int organizador) {
-        this.organizador = organizador;
     }
 
     @Override

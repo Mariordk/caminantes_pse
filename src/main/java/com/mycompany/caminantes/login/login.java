@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Mario
  */
 @Named
-@ApplicationScoped
+@SessionScoped
 public class login implements Serializable{
     
     

@@ -8,7 +8,6 @@ package com.mycompany.caminantes.rest;
 import com.mycompany.caminantes.entities.Rutas;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
@@ -25,7 +24,6 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Mario
  */
-@Named
 @Stateless
 @Path("com.mycompany.caminantes.entities.rutas")
 public class RutasFacadeREST extends AbstractFacade<Rutas> {

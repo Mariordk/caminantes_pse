@@ -25,18 +25,7 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-     <security-constraint> <!-- Configuración de seguridad-->
-        <web-resource-collection>
-            <web-resource-name>organizador</web-resource-name>
-            <url-pattern>/faces/organizador/*</url-pattern> <!-- Directorio restringido -->
-            <url-pattern>/organizador/*</url-pattern> <!-- Patron de páginas -->
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint> <!-- Grupo permitido -->
-            <role-name>organizador</role-name>
-        </auth-constraint>
-    </security-constraint>
+    
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>usuario</web-resource-name>

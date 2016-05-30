@@ -31,6 +31,8 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(com.mycompany.caminantes.json.RolesReader.class);
         resources.add(com.mycompany.caminantes.json.RolesWriter.class);
+        resources.add(com.mycompany.caminantes.json.RutasReader.class);
+        resources.add(com.mycompany.caminantes.json.RutasWriter.class);
         resources.add(com.mycompany.caminantes.json.UsuarioReader.class);
         resources.add(com.mycompany.caminantes.json.UsuarioWriter.class);
         resources.add(com.mycompany.caminantes.rest.RolesFacadeREST.class);

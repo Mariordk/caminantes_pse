@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h2>Detalles de la ruta "<font color="darkgoldenrod">#{rutasClientBean.ruta.nombre}</font>"</h2>
+            <h:form>
+                <h3 id="datos">Descripción:</h3> <h4>#{rutasClientBean.ruta.descripcion}</h4>
+                <h3 id="datos">Hora de inicio:</h3> <h4> #{rutasClientBean.ruta.horaInicio}</h4>
+                <h3 id="datos">Hora de fin aproximada:</h3> <h4> #{rutasClientBean.ruta.horaFin}</h4>
+            <p:commandButton value="Modificar" action="modificarRuta" />
+            <p:commandButton value="Eliminar" action="indexO" actionListener="#{rutasClientBean.deleteRuta()}" />
+            <p:commandButton id="back" value="Atrás" action="indexO" immediate="true" icon="ui-iconarrowrefresh-1-w"/>
+            </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

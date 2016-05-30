@@ -13,14 +13,12 @@
             <ui:define name="content">
                 <h2>Selecciona una ruta:</h2>
             <h:form prependId="false">
-<h:selectOneRadio value="#{apuntarse.id_ruta}"
-layout="pageDirection"
-required="true">
+        <h:selectOneRadio value="#{apuntarse.id_ruta}" layout="pageDirection" required="true">
         <f:selectItems value="#{rutasFacadeREST.findAll()}"
             var="m"
             itemValue="#{m.idRuta}"
             itemLabel="#{m.nombre}"/>
-</h:selectOneRadio>
+    </h:selectOneRadio>
 <p:commandButton id="shows" value="Ver detalles" action="detallesRuta"/>
 </h:form>
             </ui:define>
