@@ -2,13 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <body>
 
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
+                <c:set var="nickname" value="#{login.nombreUsuario}" />
             <form action="">
             <table>
             <tr>
@@ -17,16 +19,17 @@
                         <p:inputTextarea readonly="true" id="chatlog" rows="10" cols="50" autoResize="false" />
                 </td>
                 <td>
-                    <h3><p:outputLabel value="Usuarios" /></h3>
+                    <h3><p:outputLabel value="Usuarios conectados" /></h3>
                         <p:inputTextarea readonly="true" id="users" rows="10" cols="20" autoResize="false" />
                 </td>
             </tr>
             <tr>
                 <td colspan="2">
+                    <h4 id="alias">Introduzca su alias para el chat:</h4>
                     <p:inputText id="texto" value="Usuario"/>
-                    <p:commandButton onclick="join();" value="Unirse"/>
-                    <p:commandButton onclick="send_message();" value="Enviar"/><p/>
-                    <p:commandButton onclick="disconnect();" value="Desconectarse"/>
+                    <p:commandButton onclick="join();" value="Unirse" id="unirse"/>
+                    <p:commandButton onclick="send_message();" value="Enviar" id="enviar" style="visibility: hidden"/><p/>
+                    <p:commandButton onclick="disconnect();" value="Desconectarse" id="desconectar" style="visibility: hidden" />
                 </td>
             </tr>
             </table>

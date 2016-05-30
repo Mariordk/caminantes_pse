@@ -18,12 +18,21 @@ var username;
 function join() {
 username = textField.value;
 websocket.send(username + " joined");
+document.getElementById("alias").style.setProperty("visibility","hidden");
+document.getElementById("unirse").style.setProperty("visibility","hidden");
+document.getElementById("enviar").style.removeProperty("visibility");
+document.getElementById("desconectar").style.removeProperty("visibility");
+
 }
 function send_message() {
 websocket.send(username + ": " + textField.value);
 }
 function disconnect() {
-websocket.close();
+    document.getElementById("alias").style.removeProperty("visibility");
+    document.getElementById("unirse").style.removeProperty("visibility");
+    document.getElementById("enviar").style.setProperty("visibility","hidden");
+    document.getElementById("desconectar").style.setProperty("visibility","hidden");
+    websocket.close();
 }
 
 websocket.onopen = function (evt) {
