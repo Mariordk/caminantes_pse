@@ -31,7 +31,7 @@ public class login implements Serializable{
     
     
     private String nombreUsuario;
-    
+    private String rol;
 
     @PersistenceContext
     EntityManager em;
@@ -59,9 +59,10 @@ public class login implements Serializable{
         }
         HttpServletRequest peticion = (HttpServletRequest) objPeticion;
         nombreUsuario = peticion.getRemoteUser();
-        if (nombreUsuario == null) {
+        /*if (nombreUsuario == null) {
+            
             logout();
-        }
+        }*/
     }
     
     public void logout()
@@ -76,20 +77,22 @@ public class login implements Serializable{
     }
     
     public String getRol() {
+        
+            getNombreUsuario(); 
         try {
-            System.out.println(em.createNamedQuery("Roles.findByNombreUsuario", Roles.class)
-                .setParameter("nombreUsuario", nombreUsuario)
-                .getSingleResult()
-                .getRol());
+            
+            
+            System.out.println("SE HA ENTRADO AL METODO GETROL");
                 return em.createNamedQuery("Roles.findByNombreUsuario", Roles.class)
                 .setParameter("nombreUsuario", nombreUsuario)
                 .getSingleResult()
                 .getRol();
                 
-                
+
             } catch (NoResultException e) 
             {
                 return "";
             }
+        
     }  
 }

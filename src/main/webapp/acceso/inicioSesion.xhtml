@@ -10,20 +10,27 @@
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h2>#{login.rol}Ingrese los siguientes datos para iniciar sesión:</h2>
+              
+                <h2>Ingrese los siguientes datos para iniciar sesión: </h2>
                     <form action="j_security_check" method="POST">
                         <table cellpadding="5" cellspacing="5" id="tablaInicio">
+                            
                             <tr>
-                                <p><label>Nombre de usuario</label><input type="text" name="j_username" size="21" maxlength="16"/></p>
-                            </tr>
-                            <tr>
-                                <p><label>Contraseña: </label><input type="password" name="j_password" size="16" maxlength="16"/></p>
-                                
+                                <td>
+                                    <p><b>Nombre de usuario:&nbsp;</b>  <input type="text" class="login" name="j_username" size="21" maxlength="16"/></p>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="submit" value="Entrar"/>
+                                    <p> <b>Password:&nbsp;</b><input type="password" class="login" name="j_password" size="21" maxlength="16"/></p>
                                 </td>
+                            </tr>
+                            <tr>
+                                
+                                <td>
+                                    <input action="/faces/index.xhtml" type="submit" value="Entrar"/>
+                                </td>
+                                
                             </tr>
                            
                         </table>
