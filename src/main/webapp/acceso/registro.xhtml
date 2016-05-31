@@ -12,56 +12,83 @@
 
             <ui:define name="content">
                  <h2>Ingrese los siguientes datos para registrarse:</h2>
-                    <h:form>
-                        <table cellpadding="5" cellspacing="5" id="tablaInicio">
-                            <tr>
-                                <th align="left">Nombre de usuario:</th>
-                                <td><h:inputText value="#{usuariosBackingBean.nombreUsuario}"/> </td>
-                            </tr>
-                            <tr>
-                                <th align="left">Password:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.password}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Confirmar password:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.password}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Nombre:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.nombre}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Apellidos:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.apellidos}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Edad:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.edad}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Provincia:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.provincia}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Registrarse como:</th>
-                                    <td><p:selectOneButton value="#{usuariosBackingBean.rol}">
+                 
+                 <h:form id="tablaInicio">
+                    
+                        <p:messages autoUpdate="true"/>
+ 
+                        <h:panelGrid id="matchGrid" columns="3" cellpadding="3">
+                            <h:outputLabel for="nombreUsuario" value="Nombre de usuario:" style="font-weight:bold"/>                    
+                            <p:inputText id="nombreUsuario" value="#{usuariosBackingBean.nombreUsuario}" required="true" label="nombreUsuario">
+                                <f:validateLength maximum="16"/>
+                            </p:inputText>     
+                            <p:message for="nombreUsuario" />
+                            
+                        
+                            <h:outputLabel for="password" value="Password:" style="font-weight:bold"/>                    
+                            <p:password id="password" value="#{usuariosBackingBean.password}" label="password" match="confirmarPassword" feedback="true"
+                                promptLabel="Introduzca el password" weakLabel="Password debil"
+                                goodLabel="Password de media seguridad" strongLabel="Password seguro">
+                                <f:validateLength minimum="6" maximum="16" />
+                            </p:password>
+                            <p:message for="password" />
+                            
+
+                            <h:outputLabel for="confirmarPassword" value="Confirmar password:" style="font-weight:bold"/>                    
+                            <p:password id="confirmarPassword" label="confirmarPassword">
+                                <f:validateLength minimum="6" maximum="16" />
+                            </p:password>
+                            <p:message for="confirmarPassword" />
+                            
+                            
+                            <h:outputLabel for="nombre" value="Nombre:" style="font-weight:bold"/>                    
+                            <p:inputText id="nombre" value="#{usuariosBackingBean.nombre}" required="true" label="nombre">
+                                <f:validateLength minimum="3" maximum="16"/>
+                            </p:inputText>    
+                            <p:message for="nombre" />
+                            
+                            
+                            <h:outputLabel for="apellidos" value="Apellidos:" style="font-weight:bold"/>                    
+                            <p:inputText id="apellidos" value="#{usuariosBackingBean.apellidos}" required="true" label="apellidos">
+                                
+                                <f:validateLength maximum="16"/>
+                                </p:inputText>
+                            <p:message for="apellidos" />
+                            
+                            
+                            <h:outputLabel for="edad" value="Edad:" style="font-weight:bold"/>                    
+                            <p:inputText id="edad" value="#{usuariosBackingBean.edad}" label="edad">
+                                <f:validateDoubleRange minimum="0" maximum="100" />
+                            </p:inputText>
+                                <p:message for="edad" />
+                            
+                            
+                            <h:outputLabel for="provincia" value="Provincia:" style="font-weight:bold"/>                    
+                            <p:inputText id="provincia" value="#{usuariosBackingBean.provincia}" required="true" label="provincia">
+                                <f:validateLength maximum="40"/>
+                            </p:inputText>    
+                                <p:message for="provincia" />
+                            
+                            
+                            <h:outputLabel for="rol" value="Rol:" style="font-weight:bold"/>
+                            <p:selectOneRadio id="rol" label="rol" value="#{usuariosBackingBean.rol}" required="true">
                                             <f:selectItem itemLabel="Organizador" itemValue="organizador" />
                                             <f:selectItem itemLabel="Usuario" itemValue="usuario" />
-                                        </p:selectOneButton></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p:commandButton 
+                                        </p:selectOneRadio>
+                            <p:message for="rol" />
+                            
+                            
+                            
+                            <p:commandButton 
                                         value="Enviar" 
-                                        
+                                        update="matchGrid"
                                         id="botonInicio"
                                         actionListener="#{usuariosClientBean.addUsuario()}"
                                         />
-                                </td>
-                            </tr>
-                           
-                        </table>
-                    </h:form>
+                            
+                        </h:panelGrid>
+                    
+                </h:form>
             </ui:define>
 
         </ui:composition>

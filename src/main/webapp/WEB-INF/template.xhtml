@@ -15,8 +15,9 @@
 
     <h:body>
         <p:layout fullPage="true">
-        <p:layoutUnit position="north" size="50" resizable="false" closable="true" collapsible="true">
+        <p:layoutUnit position="north" size="70" resizable="false" closable="true" collapsible="true">
             <h1><h:outputText value="Caminantes - Circuito de los senderos segovianos"/></h1>
+            <p:clock />
         </p:layoutUnit>
             <c:set var="rol" scope="application" value="${login.rol}"></c:set>
             <c:set var="organizador" value="organizador"></c:set>
@@ -29,9 +30,10 @@
                             
                             <c:when test="${rol == organizador}">
                                 <p:menuitem value="Organizador"/>
-                                <p:menuitem value="Inicio" url="/faces/organizador/indexO.xhtml" icon="ui-icon-home" />
+                                <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
                                 <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
                                 <p:menuitem value="Modificar perfil" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" />                                  
+                                <p:separator/>
                                 <p:menuitem value="Cerrar sesion" actionListener="#{login.logout()}" icon="ui-icon-power"/>
                             </c:when>
                             
@@ -41,6 +43,7 @@
                                 <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" />
                                 <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
                                 <p:menuitem value="Modificar perfil" url="/faces/usuario/modificarPerfil.xhtml" icon=" ui-icon-gear"/>
+                                <p:separator/>
                                 <p:menuitem value="Cerrar sesion" actionListener="#{login.logout()}" icon="ui-icon-power"/>
 
                             </c:when>

@@ -36,6 +36,14 @@
 <p:commandButton id="back" value="Atrás" action="confirm" icon="ui-icon-arrowrefresh-1-w"
 immediate="true"/>
 </h:form>
+              <p:separator/>
+            <p/>
+                <p:steps activeIndex="2" styleClass="custom" readonly="false">
+                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
+                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
+                    <p:menuitem value="Pago" url="pago"/>
+                    <p:menuitem value="Comprobante de inscripción" url="print"/>
+                </p:steps>
             </ui:define>
 
         </ui:composition>

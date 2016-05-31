@@ -37,8 +37,10 @@ a:link:hover, a:visited:hover  {
 
 #tablaInicio
 {
+    margin-right: 0;
+    padding-right:0;
     padding-top: 0;
-    margin-left:30%;
+    
     -moz-border-radius: 5px;
     border-radius:5px;
     padding:2%;
@@ -63,3 +65,29 @@ a:link:hover, a:visited:hover  {
     float:right;
 }
 
+.ui-steps .ui-steps-item {
+    width: 24%;
+}
+ 
+.ui-state-highlight {
+    text-shadow: none !important;
+}
+ 
+.ui-steps.custom {
+    margin-bottom: 30px;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+    background-color: #0081c2;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 30px;
+    border-radius: 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}

@@ -17,7 +17,17 @@
                 <h3 id="datos">Hora de fin aproximada:</h3> <h4> #{apuntarse.horadeFin}</h4>
             <p:commandButton value="Apuntarse" action="pago" />
             <p:commandButton id="back" value="Atrás" action="rutas" immediate="true" icon="ui-iconarrowrefresh-1-w"/>
+            
+            
             </h:form>
+                <p:separator/>
+            <p/>
+                <p:steps activeIndex="1" styleClass="custom" readonly="false">
+                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
+                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
+                    <p:menuitem value="Pago" url="pago"/>
+                    <p:menuitem value="Comprobante de inscripción" url="print"/>
+                </p:steps>
             </ui:define>
 
         </ui:composition>
