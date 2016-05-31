@@ -10,8 +10,15 @@
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h2>Detalles de la ruta "<font color="darkgoldenrod">#{apuntarse.nombreDeRuta}</font>"</h2>
-            <h:form>
+                    <p/>
+                <p:steps style="margin-bottom: 6%;" activeIndex="1" styleClass="custom" readonly="false">
+                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
+                    <p:menuitem value="Detalles de la ruta #{apuntarse.nombreDeRuta}" url="detallesRuta"/>
+                    <p:menuitem value="Pago" url="pago"/>
+                    <p:menuitem value="Comprobante de inscripción" url="print"/>
+                </p:steps>
+                     <p/>
+            <h:form >
                 <h3 id="datos">Descripción:</h3> <h4>#{apuntarse.descripcionDeRuta}</h4>
                 <h3 id="datos">Hora de inicio:</h3> <h4> #{apuntarse.horadeInicio}</h4>
                 <h3 id="datos">Hora de fin aproximada:</h3> <h4> #{apuntarse.horadeFin}</h4>
@@ -21,13 +28,7 @@
             
             </h:form>
                 <p:separator/>
-            <p/>
-                <p:steps activeIndex="1" styleClass="custom" readonly="false">
-                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
-                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
-                    <p:menuitem value="Pago" url="pago"/>
-                    <p:menuitem value="Comprobante de inscripción" url="print"/>
-                </p:steps>
+            
             </ui:define>
 
         </ui:composition>

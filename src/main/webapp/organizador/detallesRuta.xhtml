@@ -16,8 +16,8 @@
                 <h3 id="datos">Hora de inicio:</h3> <h4> #{rutasClientBean.ruta.horaInicio}</h4>
                 <h3 id="datos">Hora de fin aproximada:</h3> <h4> #{rutasClientBean.ruta.horaFin}</h4>
             <p:commandButton value="Modificar" action="modificarRuta" icon="ui-icon-pencil"/>
-            <p:commandButton value="Eliminar" icon="ui-icon-trash" action="indexO" actionListener="#{rutasClientBean.deleteRuta()}" />
-            <p:commandButton id="back" value="Atrás" action="indexO" immediate="true" icon=" ui-icon-arrowreturnthick-1-w"/>
+            <p:commandButton value="Eliminar" icon="ui-icon-trash" action="/faces/index.xhtml" actionListener="#{rutasClientBean.deleteRuta()}" />
+            <p:commandButton id="back" value="Atrás" action="/faces/index.xhtml" immediate="true" icon=" ui-icon-arrowreturnthick-1-w"/>
             </h:form>
             </ui:define>
 

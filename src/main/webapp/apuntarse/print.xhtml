@@ -11,7 +11,16 @@
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h2><h:outputText value="Enhorabuena, ya te has apuntado a #{apuntarse.nombreDeRuta}"/></h2>
+                <p/>
+                <p:steps style="margin-bottom: 6%;" activeIndex="3" styleClass="custom" readonly="false">
+                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
+                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
+                    <p:menuitem value="Pago de las tasas" url="pago"/>
+                    <p:menuitem value="Comprobante de inscripción" url="print"/>
+                </p:steps>
+                 <p/>
+                 
+                <h2><h:outputText  value="Enhorabuena, ya te has apuntado a #{apuntarse.nombreDeRuta}"/></h2>
                     <p:panelGrid id="info" columns="3">
                         <h:outputText value="Descripción: #{apuntarse.descripcionDeRuta}"/>
                         <h:outputText value="Hora de inicio: #{apuntarse.horadeInicio}"/>
@@ -42,13 +51,7 @@
                     </p:commandButton>
                     
                     <p:separator/>
-            <p/>
-                <p:steps activeIndex="3" styleClass="custom" readonly="false">
-                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
-                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
-                    <p:menuitem value="Pago" url="pago"/>
-                    <p:menuitem value="Comprobante de inscripción" url="print"/>
-                </p:steps>
+            
             </ui:define>
 
         </ui:composition>

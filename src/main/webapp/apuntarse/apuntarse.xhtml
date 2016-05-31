@@ -11,8 +11,15 @@
         <ui:composition template="./../WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h2>Selecciona una ruta:</h2>
-            <h:form prependId="false">
+                <p/>
+                <p:steps  style="margin-bottom: 6%;" activeIndex="0" styleClass="custom" readonly="false">
+                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
+                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
+                    <p:menuitem value="Pago" url="pago"/>
+                    <p:menuitem value="Comprobante de inscripción" url="print"/>
+                </p:steps>
+                 
+            <h:form  prependId="false">
         <h:selectOneRadio value="#{apuntarse.idRuta}" layout="pageDirection" required="true">
         <f:selectItems value="#{rutasClientBean.rutas}"
             var="m"
@@ -22,13 +29,7 @@
 <p:commandButton id="shows" value="Ver detalles" action="detallesRuta"/>
 </h:form>   
                     <p:separator/>
-                    <p/>
-                <p:steps activeIndex="0" styleClass="custom" readonly="false">
-                    <p:menuitem value="Seleccion de ruta" url="apuntarse"/>
-                    <p:menuitem value="Detalles de la ruta" url="detallesRuta"/>
-                    <p:menuitem value="Pago" url="pago"/>
-                    <p:menuitem value="Comprobante de inscripción" url="print"/>
-                </p:steps>
+                    
             </ui:define>
 
         </ui:composition>
