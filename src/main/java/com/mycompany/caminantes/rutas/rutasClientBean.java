@@ -91,6 +91,7 @@ public class rutasClientBean {
         
         Rutas r = new Rutas();
        
+        r.setIdRuta(bean.getIdRuta());
         r.setNombre(bean.getNombre());
         r.setDescripcion(bean.getDescripcion());
         r.setHoraInicio(bean.getHoraInicio());
@@ -98,6 +99,7 @@ public class rutasClientBean {
                  
         target.path("{idRuta}")
                 .resolveTemplate("idRuta", bean.getIdRuta())
+                .register(RutasWriter.class)
                 .request()
                 .put(Entity.entity(r,MediaType.APPLICATION_JSON));
      }
@@ -105,7 +107,7 @@ public class rutasClientBean {
     public void cargarDatosRuta()
     {
         Rutas r = getRuta();
-        
+        bean.setIdRuta(r.getIdRuta());
         bean.setNombre(r.getNombre());
         bean.setDescripcion(r.getDescripcion());
         bean.setHoraInicio(r.getHoraInicio());
