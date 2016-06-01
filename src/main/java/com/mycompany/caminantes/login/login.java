@@ -7,13 +7,16 @@ package com.mycompany.caminantes.login;
 
 import com.mycompany.caminantes.entities.Roles;
 import com.mycompany.caminantes.entities.Usuarios;
+import com.mycompany.caminantes.usuarios.usuariosBackingBean;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -32,6 +35,9 @@ public class login implements Serializable{
     
     private String nombreUsuario;
     private String rol;
+    
+    @Inject
+    usuariosBackingBean bean;
 
     @PersistenceContext
     EntityManager em;
@@ -78,7 +84,7 @@ public class login implements Serializable{
     
     public String getRol() {
         
-            getNombreUsuario(); 
+            getNombreUsuario();
         try {
             
             
@@ -92,7 +98,33 @@ public class login implements Serializable{
             } catch (NoResultException e) 
             {
                 return "";
-            }
-        
-    }  
+            }    
+    }
+    
+    public void cargarDatosUsuario()
+    {
+                    System.out.println("PRUEBA LOGIN");
+
+        try
+        {
+            System.out.println(nombreUsuario);
+            Usuarios u = em.createNamedQuery("Usuarios.findByNombreUsuario",Usuarios.class)
+                    .setParameter("nombreUsuario", nombreUsuario)
+                    .getSingleResult();
+            
+           bean.setIdUsuario(u.getIdUsuario());
+           bean.setNombreUsuario(u.getNombreUsuario());
+           bean.setPassword(u.getPassword());
+           bean.setNombre(u.getNombre());
+           bean.setApellidos(u.getApellidos());
+           bean.setEdad(u.getEdad());
+           bean.setProvincia(u.getProvincia());
+           
+           
+        }
+        catch(NoResultException e)
+        {
+            System.out.println("catch");
+        }
+    }
 }

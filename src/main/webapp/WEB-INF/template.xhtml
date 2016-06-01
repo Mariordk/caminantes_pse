@@ -32,7 +32,7 @@
                                 <p:menuitem value="Organizador"/>
                                 <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
                                 <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
-                                <p:menuitem value="Modificar perfil" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" />                                  
+                                <p:menuitem value="Modificar perfil" action="modificarPerfil" actionListener="${login.cargarDatosUsuario}" icon=" ui-icon-gear"/>
                                 <p:separator/>
                                 <p:menuitem value="Cerrar sesion" actionListener="#{login.logout()}" icon="ui-icon-power"/>
                             </c:when>
@@ -42,18 +42,18 @@
                                 <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
                                 <p:menuitem value="Apuntarse a ruta" action="apuntarse" icon="ui-icon-image" />
                                 <p:menuitem value="Chat" url="/faces/chat/chat.xhtml" icon="ui-icon-comment" />
-                                <p:menuitem value="Modificar perfil" url="/faces/usuario/modificarPerfil.xhtml" icon=" ui-icon-gear"/>
+                                <p:menuitem value="Modificar perfil" action="modificarPerfil" actionListener="${login.cargarDatosUsuario}" icon=" ui-icon-gear"/>
                                 <p:separator/>
                                 <p:menuitem value="Cerrar sesion" actionListener="#{login.logout()}" icon="ui-icon-power"/>
 
                             </c:when>
                             
-                            <c:otherwise>
-                                 <p:menuitem value="Usuario NR"/>
+                            <c:when test="${rol != organizador and rol != usuario}">
+                                <p:menuitem value="Usuario NR"/>
                                 <p:menuitem value="Inicio" url="/faces/index.xhtml" icon="ui-icon-home" />
                                 <p:menuitem value="Iniciar sesion" url="/faces/acceso/inicioSesion.xhtml" icon="ui-icon-key"/>
                                 <p:menuitem value="Registrarse" url="/faces/acceso/registro.xhtml" icon="ui-icon-person" />    
-                            </c:otherwise>
+                            </c:when>
                             
                         </c:choose> 
                         

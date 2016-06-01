@@ -15,7 +15,7 @@
                         <table cellpadding="5" cellspacing="5">
                             <tr>
                                 <th align="left">Nombre de usuario:</th>
-                                <td><h:inputText value="#{usuariosBackingBean.nombre}"/> </td>
+                                <td><h:inputText value="#{usuariosBackingBean.nombreUsuario}"/></td>
                             </tr>
                             <tr>
                                 <th align="left">Password:</th>
@@ -44,8 +44,7 @@
                             
                         </table>
                     <p:commandButton 
-                        value="Añadir" 
-                        action="movies" 
+                        value="Añadir"                      
                         actionListener="#{usuariosClientBean.updateUsuario()}"/>
                     </h:form>
             </ui:define>

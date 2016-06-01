@@ -81,7 +81,6 @@ public class usuariosClientBean {
     }
      
      public void addUsuario() {
-         System.out.println(bean.getRol());
         Usuarios u = new Usuarios();
         u.setIdUsuario(1);
         u.setNombreUsuario(bean.getNombreUsuario());
@@ -92,7 +91,6 @@ public class usuariosClientBean {
         u.setProvincia(bean.getProvincia());
         u.setRol(bean.getRol());
         rolBean.addRol(bean.getNombreUsuario(),bean.getRol());
-         
         target.register(UsuarioWriter.class).request().post(Entity.entity(u,MediaType.APPLICATION_JSON));
         
 
@@ -100,10 +98,19 @@ public class usuariosClientBean {
      
      public void updateUsuario(){
         
+        Usuarios u = new Usuarios();
+       
+        u.setNombreUsuario(bean.getNombreUsuario());
+        u.setPassword(bean.getPassword());
+        u.setNombre(bean.getNombre());
+        u.setApellidos(bean.getApellidos());
+        u.setEdad(bean.getEdad());
+        u.setProvincia(bean.getProvincia());
+         
         target.path("{idUsuario}")
                 .resolveTemplate("idUsuario", bean.getIdUsuario())
                 .request()
-                .put(Entity.entity(Usuarios.class,MediaType.APPLICATION_JSON));
+                .put(Entity.entity(u,MediaType.APPLICATION_JSON));
         
      }
 }
