@@ -119,6 +119,7 @@ public class login implements Serializable{
            bean.setApellidos(u.getApellidos());
            bean.setEdad(u.getEdad());
            bean.setProvincia(u.getProvincia());
+          bean.setRol(u.getRol());
            
            
         }

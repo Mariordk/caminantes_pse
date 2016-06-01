@@ -98,13 +98,14 @@ public class usuariosClientBean {
         
         Usuarios u = new Usuarios();
        
+        u.setIdUsuario(bean.getIdUsuario());
         u.setNombreUsuario(bean.getNombreUsuario());
         u.setPassword(bean.getPassword());
         u.setNombre(bean.getNombre());
         u.setApellidos(bean.getApellidos());
         u.setEdad(bean.getEdad());
         u.setProvincia(bean.getProvincia());
-        
+        u.setRol(bean.getRol());
          
         target.path("{idUsuario}")
                 .resolveTemplate("idUsuario", bean.getIdUsuario())
