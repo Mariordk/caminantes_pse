@@ -8,6 +8,7 @@ package com.mycompany.caminantes.usuarios;
 import com.mycompany.caminantes.entities.Usuarios;
 import com.mycompany.caminantes.json.UsuarioReader;
 import com.mycompany.caminantes.json.UsuarioWriter;
+import com.sun.org.apache.bcel.internal.classfile.Utility;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
