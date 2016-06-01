@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -11,42 +12,70 @@
 
             <ui:define name="content">
                  <h2>Modificar datos del perfil</h2>
-                    <h:form>
-                        <table cellpadding="5" cellspacing="5">
-                            <tr>
-                                <th align="left">Nombre de usuario:</th>
-                                <td><h:inputText value="#{usuariosBackingBean.nombreUsuario}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Password:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.password}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Confirmar password:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.password}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Nombre:</th>
-                                <td><h:inputText value="#{usuariosBackingBean.nombre}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Apellidos:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.apellidos}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Edad:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.edad}"/></td>
-                            </tr>
-                            <tr>
-                                <th align="left">Provincia:</th>
-                                    <td><h:inputText value="#{usuariosBackingBean.provincia}"/></td>
-                            </tr>
+                 
+                 <h:form id="tablaInicio">
+                    
+                        <p:messages autoUpdate="true"/>
+ 
+                        <h:panelGrid id="matchGrid" columns="3" cellpadding="3">
+                            <h:outputLabel for="nombreUsuario" value="Nombre de usuario:" style="font-weight:bold"/>                    
+                            <p:inputText id="nombreUsuario" value="#{usuariosBackingBean.nombreUsuario}" required="true" label="nombreUsuario">
+                                <f:validateLength maximum="16"/>
+                            </p:inputText>     
+                            <p:message for="nombreUsuario" />
                             
-                        </table>
-                    <p:commandButton 
-                        value="Añadir"                      
-                        actionListener="#{usuariosClientBean.updateUsuario()}"/>
-                    </h:form>
+                        
+                            <h:outputLabel for="password" value="Password:" style="font-weight:bold"/>                    
+                            <p:password id="password" value="#{usuariosBackingBean.password}" label="password" match="confirmarPassword" feedback="true"
+                                promptLabel="Introduzca el password" weakLabel="Password debil"
+                                goodLabel="Password de media seguridad" strongLabel="Password seguro">
+                                <f:validateLength minimum="6" maximum="16" />
+                            </p:password>
+                            <p:message for="password" />
+                            
+
+                            <h:outputLabel for="confirmarPassword" value="Confirmar password:" style="font-weight:bold"/>                    
+                            <p:password id="confirmarPassword" value="#{usuariosBackingBean.password}" label="confirmarPassword">
+                                <f:validateLength minimum="6" maximum="16" />
+                            </p:password>
+                            <p:message for="confirmarPassword" />
+                            
+                            
+                            <h:outputLabel for="nombre" value="Nombre:" style="font-weight:bold"/>                    
+                            <p:inputText id="nombre" value="#{usuariosBackingBean.nombre}" required="true" label="nombre">
+                                <f:validateLength minimum="3" maximum="16"/>
+                            </p:inputText>    
+                            <p:message for="nombre" />
+                            
+                            
+                            <h:outputLabel for="apellidos" value="Apellidos:" style="font-weight:bold"/>                    
+                            <p:inputText id="apellidos" value="#{usuariosBackingBean.apellidos}" required="true" label="apellidos">
+                                
+                                <f:validateLength maximum="16"/>
+                                </p:inputText>
+                            <p:message for="apellidos" />
+                            
+                            
+                            <h:outputLabel for="edad" value="Edad:" style="font-weight:bold"/>                    
+                            <p:inputText id="edad" value="#{usuariosBackingBean.edad}" label="edad">
+                                <f:validateDoubleRange minimum="0" maximum="100" />
+                            </p:inputText>
+                                <p:message for="edad" />
+                            
+                            
+                            <h:outputLabel for="provincia" value="Provincia:" style="font-weight:bold"/>                    
+                            <p:inputText id="provincia" value="#{usuariosBackingBean.provincia}" required="true" label="provincia">
+                                <f:validateLength maximum="40"/>
+                            </p:inputText>    
+                                <p:message for="provincia" />
+                        </h:panelGrid>
+                         <p:commandButton 
+                        value="Modificar"                      
+                        actionListener="#{usuariosClientBean.updateUsuario()}"
+                        icon="ui-icon-pencil"/>
+                    <p:commandButton id="back" value="Atrás" action="/faces/index.xhtml" immediate="true" icon="ui-icon-arrowreturnthick-1-w"/>
+                 </h:form>
+                   
             </ui:define>
         </ui:composition>
 

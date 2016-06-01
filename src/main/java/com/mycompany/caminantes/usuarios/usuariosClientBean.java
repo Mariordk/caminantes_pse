@@ -92,8 +92,6 @@ public class usuariosClientBean {
         u.setRol(bean.getRol());
         rolBean.addRol(bean.getNombreUsuario(),bean.getRol());
         target.register(UsuarioWriter.class).request().post(Entity.entity(u,MediaType.APPLICATION_JSON));
-        
-
     }
      
      public void updateUsuario(){
@@ -106,9 +104,11 @@ public class usuariosClientBean {
         u.setApellidos(bean.getApellidos());
         u.setEdad(bean.getEdad());
         u.setProvincia(bean.getProvincia());
+        
          
         target.path("{idUsuario}")
                 .resolveTemplate("idUsuario", bean.getIdUsuario())
+                .register(UsuarioWriter.class)
                 .request()
                 .put(Entity.entity(u,MediaType.APPLICATION_JSON));
         

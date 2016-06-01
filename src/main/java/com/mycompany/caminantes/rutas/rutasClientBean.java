@@ -6,6 +6,7 @@
 package com.mycompany.caminantes.rutas;
 
 import com.mycompany.caminantes.entities.Rutas;
+import com.mycompany.caminantes.entities.Usuarios;
 import com.mycompany.caminantes.json.RutasReader;
 import com.mycompany.caminantes.json.RutasWriter;
 import javax.annotation.PostConstruct;
@@ -14,6 +15,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -84,4 +86,31 @@ public class rutasClientBean {
         .request()
         .delete();
 }
+    
+    public void updateRuta(){
+        
+        Rutas r = new Rutas();
+       
+        r.setNombre(bean.getNombre());
+        r.setDescripcion(bean.getDescripcion());
+        r.setHoraInicio(bean.getHoraInicio());
+        r.setHoraFin(bean.getHoraFin());
+                 
+        target.path("{idRuta}")
+                .resolveTemplate("idRuta", bean.getIdRuta())
+                .request()
+                .put(Entity.entity(r,MediaType.APPLICATION_JSON));
+     }
+    
+    public void cargarDatosRuta()
+    {
+        Rutas r = getRuta();
+        
+        bean.setNombre(r.getNombre());
+        bean.setDescripcion(r.getDescripcion());
+        bean.setHoraInicio(r.getHoraInicio());
+        bean.setHoraFin(r.getHoraFin());
+        
+        
+    }
 }
